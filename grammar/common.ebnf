@@ -23,4 +23,6 @@ hexadecimal_digit = decimal_digit
                   | "A" | "B" | "C" | "D" | "E" | "F"
                   ;
 
-identifier = ( "_" | letter ) , { "_" | letter | decimal_digit } ;
+word = ( "_" | letter ) , { "_" | letter | decimal_digit } ;
+
+identifier = word , { "::" , word } ;

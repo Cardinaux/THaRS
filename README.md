@@ -403,7 +403,7 @@ struct Vec2i8 { i8, i8 }
 // Namespaces may be assigned for organization and avoiding name clashes.
 predicate common = "common"
 
-[]..any<Vec2u8, Vec2i8>!
+[]..any<common::Vec2u8, common::Vec2i8>!
 ```
 
 ### Format
