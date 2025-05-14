@@ -1,0 +1,9 @@
+{
+    "id": string</^eid_\d*[a-zA-Z]$/>,
+    "nid": integral<0..>,
+    "salary": rational<45_000..=70_000, 90_000..> = 45_000,
+    "paid": boolean = false,
+    "responsibilities": []..string = [],
+    "projects": {}..string = {},
+    "metadata": any<integral, string>,
+}

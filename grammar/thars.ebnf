@@ -1,0 +1,55 @@
+? include common.ebnf ?
+
+(* ENTRY *)
+file = [ template ] value ;
+
+template = "#" string ;
+
+value = boolean
+      | number
+      | string
+      | sequence
+      | map
+      | struct
+      ;
+
+boolean = "true"
+        | "false"
+        ;
+
+number = integral
+       | rational
+       ;
+
+integral = integer
+         | binary
+         | hexadecimal
+         ;
+
+integer = [ "+" | "-" ] , decimal_digit , { decimal_digit | "_" } ;
+
+binary = "0b" , [ "_" ] , binary_digit , { binary_digit | "_" } ;
+
+octal = "0o" , [ "_" ] , octal_digit , { octal_digit | "_" } ;
+
+hexadecimal = "0x" , [ "_" ] , hexadecimal_digit , { hexadecimal_digit | "_" } ;
+
+rational = decimal
+         | scientific
+         ;
+
+decimal = [ "+" | "-" ] , decimal_digit , { decimal_digit | "_" } , "." , decimal_digit , { decimal_digit | "_" } ;
+
+scientific = ( integer | decimal ) , ( "e" | "E" ) , [ "_" ] integer ;
+
+string = '"' , { char } , '"'
+       | "'" , { char } , "'"
+       ;
+
+sequence = "[" , [ value , { "," , value } ] , [ "," ] , "]" ;
+
+map = "{" , [ pair , { "," , pair } ] , [ "," ] , "}" ;
+
+pair = string , ":" value ;
+
+struct = identifier , "(" , [ value { "," , value } ] , [ "," ] , ")" ;

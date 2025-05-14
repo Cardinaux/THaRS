@@ -1,0 +1,42 @@
+{
+    // In template files, certain types may have a qualifier. "example1" must
+    // have a value greater than or equal to 0, and less than 5.
+    "ex01": rational<0..5>,
+
+    // The upper-bound of the range may be made inclusive through a special
+    // operator. The left hand side of the range MUST be less than the right
+    // hand side of the range, except when the upper-bound is made inclusive,
+    // in which case they may be equal.
+    "ex02": integral<0..=1>,    // Accepts 0 or 1
+    "ex03": integral<0..=0>,    // Accepts only 0
+
+    // The elements inside of a qualifier are called tickets. Thus, a qualifier
+    // is a composition of tickets. As long as at least one ticket's condition
+    // is met, the input value is accepted. rational and integral specifically
+    // only accept ranges as tickets.
+    "example4": integral<0..=2, 4..=5>,  // Accepts 0, 1, 2, 4, and 5
+
+    // Either end of a range may be unbounded. On the left hand side, this is
+    // analogous to -INF, and +INF on the right hand side.
+    "ex04": rational<..5>,      // Anything less than 5
+    "ex05": rational<2..>,      // Anything greater than 2
+    "ex06": rational<..>,       // Anything at all
+
+    // Strings may also accept a qualifier, but it only accepts regex as
+    // tickets. THaRS does not have a standardized regex flavour, that
+    // decision is instead made by the implementation.
+    "ex07": string</^[a-zA-Z_0-9]*@email\.domain$/>,
+
+    // The any type may also accept a qualifier, but its tickets are types which
+    // are acceptable input types.
+    "ex08": any<boolean, rational<0..5>>,   // Accepts true, false,
+                                            // 0, 1, 2, 3, 4.
+
+    // Qualifiers are optional to specify, but are implicit. Default values are
+    // used when not otherwise specified.
+    "ex09": integral,   // integral<..>
+    "ex10": rational,   // rational<..>
+    "ex11": string,     // string</.*/>
+    "ex12": any,        // When provided no qualifier, any will always issue a
+                        // ticket.
+}

@@ -1,0 +1,20 @@
+// Structs are unique from maps in several key areas:
+// 1) They utilize reflection, and thus, MAY PERMIT ARBITRARY CODE EXECUTION.
+//    Use this feature at your own risk!
+// 2) 'Keys', or more accurately, attribute names, exist only to make reflection
+//    easier. They are optional, and attributes retain the order in which they
+//    declared in the struct definition.
+//    To reflect this, attribute names appear after the attribute type.
+struct JobIdentifier {
+    string: "job_name",
+}
+
+struct EmployeeReference {
+    string: "key_id",
+}
+
+{
+    // This will invoke reflective code, be wary of side-effects!
+    "id": JobIdentifier,
+    "employees": []..EmployeeReference,
+}

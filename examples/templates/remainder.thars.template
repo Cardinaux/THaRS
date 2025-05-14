@@ -1,0 +1,33 @@
+{
+    // By default, sequences and maps are statically sized.
+    "ex01": [ boolean, integral, string ],
+    "ex02": { "a": boolean, "b": integral, "c": string },
+
+    // This can be circumvented via a remainder.
+    "ex03": [ integral ]..boolean,  // Accepts a number followed by a variable
+                                    // number of booleans.
+    
+    "ex04": { "a": string }..string,    // Accepts a key named "a" with a number
+                                        // followed by a variable number of keys
+                                        // with any name and type string.
+    
+    // An any type can be used and each subsequent type will be matched against
+    // it individually.
+    "ex05": []..any,    // All types must fulfill this individually.
+    "ex06": {}..any,
+
+    // For the purposes of remainder operations, a qualifier may be collapsed
+    // using the ! operator. This means that the first ticket to be issued
+    // becomes the sole remaining ticket in the qualifier for all subsequent
+    // type checks.
+    "ex07": []..any<number::integer<0..5, 8..10>!, string>!
+    // Regarding "ex07": if a string is input, all subsequent values must be a
+    // string. If 3 is input, all subsequent values must be in the range 0..5.
+    // If a 9 is input, all subsequent values must be in the range 8..10. Note
+    // the nested collapse.
+
+    // Any type may be collapsed, but this has no effect unless used in a
+    // remainder operation. Additionally, booleans will always qualify despite
+    // having no tickets.
+    "ex08": boolean!,   // Effectively useless.
+}

@@ -1,0 +1,26 @@
+char = ? UTF-8 character ? ;
+
+(* IGNORE *)
+comment = "//" , { char } , ( "\n" | "\r\n" | ? EOF ? )
+        | "/*" , { char } , ( "*/" | ? EOF ? )
+        ;
+
+(* IGNORE *)
+whitespace = " " | "\n" | "\r" | "\t" ;
+
+letter = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l"
+       | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x"
+       | "y" | "z"
+       | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L"
+       | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X"
+       | "Y" | "Z" ;
+
+binary_digit = "0" | "1" ;
+octal_digit = binary_digit | "3" | "4" | "5" | "6" | "7" ;
+decimal_digit = octal_digit | "8" | "9" ;
+hexadecimal_digit = decimal_digit
+                  | "a" | "b" | "c" | "d" | "e" | "f"
+                  | "A" | "B" | "C" | "D" | "E" | "F"
+                  ;
+
+identifier = ( "_" | letter ) , { "_" | letter | decimal_digit } ;

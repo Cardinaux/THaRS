@@ -1,0 +1,38 @@
+? include common.ebnf ?
+? include thars.ebnf ?
+
+(* ENTRY *)
+file = { predicate } , { struct | pseudo } , root ;
+
+predicate = "predicate" , string ;
+
+struct = "struct" , identifier , "{" , [ attribute , { "," , attribute } ] , [ "," ] , "}" ;
+
+attribute = identifier , [ ":" , type ] ;
+
+pseudo = "pseudo" , identifier , "=" , type ;
+
+root = type ;
+
+type = ( t_unit | t_sequence | t_map ) , [ "!" ] ;
+
+t_unit = identifier , [ qualifier ] ;
+
+qualifier = "<" , [ ticket , { "," , ticket } ] , [ "," ] , ">" ;
+
+ticket = range
+       | regex
+       | type
+       ;
+
+range = [ number ] , ( ".." , "..=" ) , [ number ] ;
+
+regex = "/" , { char } , "/" ;
+
+t_sequence = "[" , [ type , { "," , type } ] , [ "," ] , "]" , [ remainder ] ;
+
+t_map = "{" , [ t_pair , { "," , t_pair } ] , [ "," ] , "}" , [ remainder ] ;
+
+t_pair = string , ":" , type , [ "=" , value ] ;
+
+remainder = ".." , type ;

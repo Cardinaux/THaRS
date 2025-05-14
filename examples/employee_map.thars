@@ -1,0 +1,26 @@
+// Using template `employee_map.thars.template`.
+// If the extension is not detected, the backend will automatically fill it in.
+// "employee_map" -> "employee_map.thars.template"
+// "employee_map.thars.template" -> "employee_map.thars.template"
+// But be careful!
+// "employee_map.thars" -> "employee_map.thars.thars.template"
+// The template file MUST have the extension .thars.template.
+#"templates/employee_map"
+
+{
+    "id": "eid_819042a",
+    "nid": 819042,
+    "salary": 50_000,
+    "paid": false,
+    "responsibilities": [
+        "task_a",
+        "task_b",
+        "task_c",
+    ],
+    "projects": {
+        "pid_434c": 5,
+        "pid_321a": 3,
+        "pid_66d": 9,
+    },
+    "metadata": 123,
+}

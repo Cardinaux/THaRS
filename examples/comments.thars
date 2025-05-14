@@ -1,0 +1,10 @@
+// This is a single-line comment
+
+/*
+    And this,
+    is...
+    a multi-line comment!
+*/
+
+// A .thars file MUST have a value.
+0
