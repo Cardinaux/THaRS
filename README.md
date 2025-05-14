@@ -85,7 +85,7 @@ Like integrals, underscores may also be used.
 // Although an integer may be used for the coeffecient, it's still a rational.
 12_000e-3
 // Underscores may also lead exponents.
-13.1e
+13.1e_2
 ```
 
 ##### Strings
