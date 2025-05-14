@@ -41,6 +41,11 @@ THaRS' expansion primarily relies on two functions: templates and reflected stru
 A faithful THaRS implementation will provide a common set of values, broken down into several categories: units and hierarchies, both of which may also be broken down into several types.
 
 ### Units
+##### Null
+`null`
+
+Represents a lack of value.
+
 ##### Booleans
 `boolean`
 
@@ -538,7 +543,8 @@ Scoring works like a ladder: in order to achieve one rung, all previous rungs mu
 | ASCII Strings                 | 0.3           |
 | Sequences                     | 0.4           |
 | Maps                          | 0.5           |
-| UTF-8 Strings                 | 0.6           |
+| Null                          | 0.6           |
+| UTF-8 Strings                 | 0.7           |
 | Integers                      | 1.0           |
 | Template inclusion            | 2.0           |
 | [Implicit extensions](#thars) | 2.1           |
@@ -558,6 +564,7 @@ Scoring works like a ladder: in order to achieve one rung, all previous rungs mu
 | Remainders                              | 0.9              |
 | Default map values                      | 0.10             |
 | `any` type                              | 0.11             |
+| `null` type                             | 0.12             |
 | Qualifiers                              | 1.0              |
 | Default map values subject to qualifier | 1.1              |
 | Type ticket                             | 1.2              |
