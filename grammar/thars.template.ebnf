@@ -4,7 +4,7 @@
 (* ENTRY *)
 file = { predicate } , { struct | pseudo } , root ;
 
-predicate = "predicate" , string ;
+predicate = "predicate" , [ identifier , "=" ] , string ;
 
 struct = "struct" , identifier , "{" , [ attribute , { "," , attribute } ] , [ "," ] , "}" ;
 
