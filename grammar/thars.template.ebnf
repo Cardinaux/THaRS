@@ -27,7 +27,7 @@ ticket = range
 
 range = [ number ] , ( ".." , "..=" ) , [ number ] ;
 
-regex = "/" , { char } , "/" ;
+regex = "/" , char , { char } , "/" ;
 
 t_sequence = "[" , [ type , { "," , type } ] , [ "," ] , "]" , [ remainder ] ;
 
