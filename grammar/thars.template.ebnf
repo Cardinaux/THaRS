@@ -16,9 +16,9 @@ root = type ;
 
 type = ( t_unit | t_sequence | t_map );
 
-t_unit = identifier , [ qualifier , [ "!" ] ] ;
+t_unit = identifier , [ qualifier ] ;
 
-qualifier = "<" , [ ticket , { "," , ticket } ] , [ "," ] , ">" ;
+qualifier = "<" , [ ticket , { "," , ticket } ] , [ "," ] , ">" , [ "!" ] ;
 
 ticket = range
        | regex
