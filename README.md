@@ -374,7 +374,9 @@ As previously mentioned, sequences and maps are statically sized. This is made u
 
 ##### Collapsers
 
-Collapsers go hand-in-hand with remainders. After a type has been matched against, if it is tagged to collapse via the `!` operator, it will reduce its qualifier to use the first ticket that was issued. All types that are then matched against it may only be issued the same ticket.
+Collapsers are an additional tag applied unto qualifiers. When a ticket is issued from a collapsible qualifier, that ticket then becomes the only effective ticket for that qualifier moving forward.
+
+It's for this reason that collapsers go hand-in-hand with remainders. After a type has been matched against, all subsequent types must be issued the same ticket. Although a collapser may be used on any type granted it accepts a qualifier, it has no use beyond remainders.
 
 ```
 // This may either be a sequence of integrals or rationals
